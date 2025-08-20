@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { AiFillBug } from "react-icons/ai";
 import { usePathname } from "next/navigation";
+import classnames from "classnames";
 
 const NavBar = () => {
     const currentPath = usePathname();
@@ -20,11 +21,11 @@ const NavBar = () => {
                 {Links.map((link) => (
                     <li key={link.href}>
                         <Link
-                            className={`${
-                                currentPath === link.href
-                                    ? "text-zinc-900"
-                                    : "text-zinc-500 hover:text-zinc-800 transition-colors"
-                            }`}
+                            className={classnames({
+                                "text-zinc-900": link.href === currentPath,
+                                "tex-zinc-500": link.href !== currentPath,
+                                "hover:text-zinc-800 transition-colors": true,
+                            })}
                             href={link.href}
                         >
                             {link.label}
