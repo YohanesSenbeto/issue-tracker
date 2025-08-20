@@ -31,22 +31,6 @@ const NavBar = () => {
                         </Link>
                     </li>
                 ))}
-                <li>
-                    <Link
-                        className="text-zinc-500 hover:text-zinc-800 transition-colors"
-                        href="/"
-                    >
-                        Dashboard
-                    </Link>
-                </li>
-                <li>
-                    <Link
-                        className="text-zinc-500 hover:text-zinc-800 transition-colors"
-                        href="/issues"
-                    >
-                        Issues
-                    </Link>
-                </li>
             </ul>
         </nav>
     );
