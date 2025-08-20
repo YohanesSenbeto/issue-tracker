@@ -8,8 +8,8 @@ const NavBar = () => {
     const currentPath = usePathname();
 
     const Links = [
-        { name: "Dashboard", href: "/" },
-        { name: "Issues", href: "/issues" },
+        { label: "Dashboard", href: "/" },
+        { label: "Issues", href: "/issues" },
     ];
     return (
         <nav className="flex space-x-6 border-b mb-5 px-5 h-14 items-center">
@@ -22,12 +22,12 @@ const NavBar = () => {
                         <Link
                             className={`${
                                 currentPath === link.href
-                                    ? "text-zinc-900 font-semibold"
+                                    ? "text-zinc-900"
                                     : "text-zinc-500 hover:text-zinc-800 transition-colors"
                             }`}
                             href={link.href}
                         >
-                            {link.name}
+                            {link.label}
                         </Link>
                     </li>
                 ))}
