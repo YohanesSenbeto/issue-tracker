@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 
 const NavBar = () => {
     const currentPath = usePathname();
-    console.log(CurrentPath);
 
     const Links = [
         { name: "Dashboard", href: "/" },
