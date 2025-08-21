@@ -30,7 +30,7 @@ export default function RootLayout({
             <body className={geistSans.variable}>
                 <Theme>
                     <NavBar />
-                    <main>{children}</main>
+                    <main className="p-5">{children}</main>
                 </Theme>
             </body>
         </html>
