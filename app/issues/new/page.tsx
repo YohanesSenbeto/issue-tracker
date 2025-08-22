@@ -7,20 +7,27 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import { useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { CreateIssueSchema } from "@/app/validationSchemas";
+import { z } from "zod";
 
 // Fix: dynamically import SimpleMDE
 const SimpleMDE = dynamic(() => import("react-simplemde-editor"), {
     ssr: false,
 });
 
-interface IssueForm {
-    title: string;
-    description: string;
-}
+type IssueForm = z.infer<typeof CreateIssueSchema>;
 
 const NewIssuePage = () => {
     const router = useRouter();
-    const { register, control, handleSubmit } = useForm<IssueForm>();
+    const {
+        register,
+        control,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<IssueForm>({
+        resolver: zodResolver(CreateIssueSchema),
+    });
     const [error, setError] = useState("");
     return (
         <div className="max-w-xl">
@@ -42,7 +49,13 @@ const NewIssuePage = () => {
                     }
                 })}
             >
-                <TextField.Root placeholder="Title" {...register("title")} />
+                <TextField.Root
+                    placeholder="Title"
+                    {...register("title")}
+                ></TextField.Root>
+                {errors.title && (
+                    <span style={{ color: "red" }}>{errors.title.message}</span>
+                )}
 
                 <Controller
                     name="description"
@@ -54,6 +67,11 @@ const NewIssuePage = () => {
                         />
                     )}
                 />
+                {errors.description && (
+                    <span style={{ color: "red" }}>
+                        {errors.description.message}
+                    </span>
+                )}
 
                 <Button type="submit">Submit New Issue</Button>
             </form>
