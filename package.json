@@ -17,6 +17,7 @@
     "bcrypt": "^6.0.0",
     "classnames": "^2.3.2",
     "daisyui": "^5.0.50",
+    "delay": "^6.0.0",
     "easymde": "^2.20.0",
     "fast-sort": "^3.4.1",
     "next": "^15.5.0",
@@ -27,6 +28,7 @@
     "react-dom": "^19.1.1",
     "react-hook-form": "^7.62.0",
     "react-icons": "^4.11.0",
+    "react-loading-skeleton": "^3.5.0",
     "react-simplemde-editor": "^5.2.0",
     "zod": "^3.22.2"
   },
