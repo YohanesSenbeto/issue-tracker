@@ -1,6 +1,5 @@
 import { Table } from "@radix-ui/themes";
 import React from "react";
-import IssueStatusBadge from "../components/IssueStatusBadge";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import IssueActions from "./IssueActions";
@@ -28,9 +27,9 @@ const LoadingIssuePage = () => {
                             <Table.Cell>
                                 <Skeleton />
                             </Table.Cell>
-                            <div className="block md:hidden">
+                            <Table.Cell className="block md:hidden">
                                 <Skeleton />
-                            </div>
+                            </Table.Cell>
                             <Table.Cell className="hidden md:table-cell">
                                 <Skeleton />
                             </Table.Cell>
