@@ -16,7 +16,8 @@ const config: Config = {
     },
   },
   plugins: [
-    require("daisyui")
+    require("daisyui"),
+    require('@tailwindcss/typography')
   ],
   daisyui: {
     themes: ["winter"],
